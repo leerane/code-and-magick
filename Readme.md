@@ -1,7 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
-* Студент: [Николай Морякин](https://up.htmlacademy.ru/javascript/14/user/541999).
-* Наставник: `Неизвестно`.
+* Студент: [Николай Морякин](https://up.htmlacademy.ru/adaptive/14/user/541999).
+* Наставник: [Владислав Балабанович](https://htmlacademy.ru/profile/balabanovich).
 
 ---
 
