@@ -7,7 +7,6 @@ var CLOUD_Y = 10;
 var CLOUD_GAP = 10;
 var SHADOW_X = CLOUD_X + CLOUD_GAP;
 var SHADOW_Y = CLOUD_Y + CLOUD_GAP;
-var FONT_GAP = 15;
 var BAR_HEIGHT = 150;
 var BAR_WIDTH = 40;
 var BAR_GAP = 50;
@@ -93,7 +92,7 @@ window.renderStatistics = function (ctx, names, times) {
   for (var i = 0; i < names.length; i++) {
     var barColor = `hsl(240, ${getRandomNumber(0, 100)}%, 50%)`;
     if (names[i] === 'Вы') {
-      barColor = 'rgba(255, 0, 0, 1)';
+      barColor = PLAYER_COLOR;
     }
     var currentTime = times[i];
     var currentProportion = currentTime / maxTime;
