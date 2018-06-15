@@ -90,7 +90,8 @@ window.renderStatistics = function (ctx, names, times) {
   var maxTime = getMaxElement(times);
 
   for (var i = 0; i < names.length; i++) {
-    var barColor = `hsl(240, ${getRandomNumber(0, 100)}%, 50%)`;
+    var saturationNumber = getRandomNumber(0, 100);
+    var barColor = 'hsl(240, ' + saturationNumber + '%, 50%)';
     if (names[i] === 'Вы') {
       barColor = PLAYER_COLOR;
     }
