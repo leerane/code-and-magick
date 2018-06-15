@@ -58,9 +58,9 @@ var drawCloud = function (ctx, startX, startY, fill, stroke) {
   ctx.fillStyle = fill;
   ctx.strokeStyle = stroke;
   ctx.beginPath();
-  ctx.moveTo(startX, startY + 50); // 100, 60
-  ctx.bezierCurveTo(startX, startY, startX + 50, startY, startX + 50, startY); // 150, 60
-  ctx.lineTo(startX + 370, startY); //
+  ctx.moveTo(startX, startY + 50);
+  ctx.bezierCurveTo(startX, startY, startX + 50, startY, startX + 50, startY);
+  ctx.lineTo(startX + 370, startY);
   ctx.bezierCurveTo(startX + 370, startY, startX + 420, startY, startX + 420, startY + 50);
   ctx.lineTo(startX + 420, startY + 220);
   ctx.bezierCurveTo(startX + 420, startY + 270, startX + 370, startY + 270, startX + 370, startY + 270);
@@ -93,13 +93,15 @@ window.renderStatistics = function (ctx, names, times) {
     var currentTime = times[i];
     var currentProportion = currentTime / maxTime;
     var currentHeight = BAR_HEIGHT * currentProportion;
+    var currentOffsetX = CLOUD_X + BAR_GAP * (i + 1) + BAR_WIDTH * i;
+    var currentOffsetY = CLOUD_Y + 20 + LINE_HEIGHT * 2 + (BAR_HEIGHT - currentHeight);
     ctx.textAlign = 'left';
     ctx.fillStyle = TEXT_COLOR;
-    ctx.fillText(Math.floor(currentTime), CLOUD_X + BAR_GAP * (i + 1) + BAR_WIDTH * i, CLOUD_Y + 20 + LINE_HEIGHT * 2 + (BAR_HEIGHT - currentHeight));
+    ctx.fillText(Math.floor(currentTime), currentOffsetX, currentOffsetY);
     ctx.fillStyle = barColor;
-    ctx.fillRect(CLOUD_X + BAR_GAP * (i + 1) + BAR_WIDTH * i, CLOUD_Y + 20 + LINE_HEIGHT * 3 + (BAR_HEIGHT - currentHeight), BAR_WIDTH, currentHeight);
+    ctx.fillRect(currentOffsetX, currentOffsetY + LINE_HEIGHT, BAR_WIDTH, currentHeight);
     ctx.fillStyle = TEXT_COLOR;
-    ctx.fillText(names[i], CLOUD_X + BAR_GAP * (i + 1) + BAR_WIDTH * i, CLOUD_HEIGHT - LINE_HEIGHT);
+    ctx.fillText(names[i], currentOffsetX, CLOUD_HEIGHT - LINE_HEIGHT);
   }
 };
 
