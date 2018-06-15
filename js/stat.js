@@ -54,11 +54,6 @@ var getRandomNumber = function (min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-var renderCloud = function (ctx, x, y, color) {
-  ctx.fillStyle = color;
-  ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
-};
-
 var drawCloud = function (ctx, startX, startY, fill, stroke) {
   ctx.fillStyle = fill;
   ctx.strokeStyle = stroke;
