@@ -22,9 +22,7 @@ var COAT_COLORS = [
 var EYE_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 var WIZARDS_AMOUNT = 4;
 
-var characters = [];
-var wizardsData = [];
-var wizardsList = [];
+var characters;
 var fragment = document.createDocumentFragment();
 
 var getRandomNumber = function (min, max) {
@@ -52,7 +50,7 @@ var createCharacter = function (name, surname, coat, eyes) {
     name: name + ' ' + surname,
     coatColor: coat,
     eyesColor: eyes
-  }
+  };
 };
 
 var renderCharacters = function (amount, names, surnames, coats, eyes) {
@@ -63,16 +61,15 @@ var renderCharacters = function (amount, names, surnames, coats, eyes) {
     var randomCoatColor = coats[getRandomNumber(0, coats.length)];
     var randomEyesColor = eyes[getRandomNumber(0, eyes.length)];
     var currentCharacter = createCharacter(randomName, randomSurname, randomCoatColor, randomEyesColor);
-    if (isEqual(tempCharacters, currentCharacter.name)) continue;
+    if (isEqual(tempCharacters, currentCharacter.name)) {
+      continue;
+    }
     tempCharacters.push(currentCharacter);
   }
   return tempCharacters;
 };
 
-characters = renderCharacters(
-  WIZARDS_AMOUNT, WIZARD_NAMES, WIZARD_SURNAMES, COAT_COLORS, EYE_COLORS
-);
-console.log(characters);
+characters = renderCharacters(WIZARDS_AMOUNT, WIZARD_NAMES, WIZARD_SURNAMES, COAT_COLORS, EYE_COLORS);
 
 var renderCharacterNode = function (character) {
   var currentWizard = similarWizardItem.cloneNode(true);
